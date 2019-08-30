@@ -2,8 +2,8 @@
  * @Author: GuoWei
  * @Date: 2019-08-30 20:54:30
  * @LastEditors: GuoWei
- * @LastEditTime: 2019-08-30 20:58:42
- * @Description: 
+ * @LastEditTime: 2019-08-30 21:35:34
+ * @Description: 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
  */
 var lengthOfLongestSubstring = function (str) {
   let len = str.length,
