@@ -1,0 +1,108 @@
+<!--
+ * @Author: GuoWei
+ * @Date: 2019-03-20 12:19:10
+ * @LastEditors: GuoWei
+ * @LastEditTime: 2019-08-30 20:55:26
+ * @Description: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .sug-wrapper {
+            position: absolute;
+            z-index: 1;
+            border: 1px solid gray;
+            width: 200px;
+            background-color: white;
+            display: none;
+        }
+
+        .sug-wrapper ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .sug-item {
+            list-style: none;
+        }
+
+        .heighLight {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="value" autoComplete="off" oninput="">
+    <div class="sug-wrapper">
+    </div>
+
+    <input type="text" name="" id="" list="words">
+    <datalist id="words">
+        <option value="1">1</option>
+        <option value="12">2</option>
+        <option value="1233">3</option>
+    </datalist>
+</body>
+
+</html>
+<script src="最长无重复子串.js"></script>
+<script>
+    // // var twoSum = function (nums, target) {
+    // //     var hash = {}
+    // //     for (let i = 0; i < nums.length; i++) {
+    // //         console.log(target - nums[i])
+    // //         console.log(hash[target - nums[i]])
+    // //         console.log(hash[7])
+    // //         if (hash[target - nums[i]]) {
+    // //             return [hash[target - nums[i]], i]
+    // //         }
+    // //         hash[nums[i]] = i
+    // //     }
+    // //     return
+    // // };
+    // // var nums = [2, 7, 11, 15], target = 9
+    // // twoSum(nums,target)
+    // function fn(maxWeight, weights, values) {
+
+    //     let len = weights.length,
+    //         arr = new Array(len * (maxWeight + 1))
+    //     arr.fill(0)
+    //     for (let i = 1; i <= maxWeight; i++) {  // 表示最大重量
+    //         for (let j = 0; j < len; j++) {
+    //             if (weights[j] > i) {
+    //                 if (j !== 0) {
+    //                     arr[len * i + j] = arr[len * i + j - 1]
+    //                 }
+    //             }
+    //             else {
+    //                 if (j === 0) {
+    //                     arr[len * i + j] = values[j]
+    //                 } else {
+    //                     arr[len * i + j] = Math.max(arr[len * i + j - 1], arr[len * (i - weights[j]) + j - 1] + values[j])
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return arr.pop()
+    // }
+    // weights = [2, 2, 6, 5, 4]
+    // // weights = [4,5,6,2,2]
+    // values = [6, 3, 5, 4, 6]
+    // // values = [6,4,5,3,6]
+    // maxWeight = 10
+
+
+    // fn(maxWeight, weights, values)
+</script>
