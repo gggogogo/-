@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <iframe src="http://localhost:4000/b.html" frameborder="0" id="frame" onload="load()"></iframe>
+  <span></span>
+  <script>
+    function load() {
+      let frame = document.getElementById('frame');
+      frame.contentWindow.postMessage({
+        url: 'http://localhost:4000/test',
+        method: 'get'
+      }, 'http://localhost:4000');
+
+      window.onmessage = function (e) {
+        datahandle(e.data);
+      }
+    }
+    function datahandle(data) {
+      document.querySelector('span').innerHTML = data.message
+      // do something
+    }
+
+  </script>
+</body>
+
+</html>

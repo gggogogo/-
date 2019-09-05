@@ -1,56 +1,20 @@
-process.stdin.resume();
-var input = '';
-process.stdin.setEncoding('ascii');
-process.stdin.on('data', function (data) {
-  input = data;
-})
-process.stdin.on('end', function () {
-  var input_array = input.trim().split('\n');
-  console.log(fn(input_array[0]))
-});
-
-
-function fn(str) {
-  let map = {},
-    max = 0
-  for (let i = 0; i < str.length; i++) {
-    if (!map[str[i]]) {
-      map[str[i]] = 1
+function trans(str) {
+    var result = +str;
+    if (isNaN(result)) {
+        return 0;
     } else {
-      map[str[i]]++
+        return result;
     }
-  }
-  for (key in map) {
-    max = max > map[key] ? max : map[key]
-  }
-  return max
 }
-console.log(fn('aba'))
 
-function fn2(max, list) {
-  let cur = list[0];
-  for (let i = 1; i < list.length; i++) {
-    cur = Math.min(Math.abs(cur + list[i]), Math.abs(cur - list[i]))
-  }
-
-  return max - cur + 1
-}
-function fn2(max, list) {
-  let ary = Array(max).fill(1),
-    res = max
-
-  while (list.length) {
-    let cur = list.pop()
-    for (let i = 0; i <= max; i++) {
-      if (ary[i] && (i + cur > max - 1 && i - cur < 0)) {
-        ary[i] = 0
-        res--
-      }
+function f(ary) {
+    var val = 0;
+    for (let i = 0; i < ary.length; i++) {
+        while (ary[i] % 3===0) {
+            ary[i] = ary[i] / 3;
+            val++;
+        }
     }
-  }
-  return res
+    return val;
 }
-
-
-
-console.log(fn2(10, [5, 2, 6]))
+console.log(f([1, 4, 3, 81, 2]))

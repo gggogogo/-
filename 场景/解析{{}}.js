@@ -13,14 +13,6 @@ function parse(str) {
     res = '',
     values = [],
     strs = str.match(reg)                    // 利用正则取出所有{{}}
-  console.log(strs)
-  values = strs.map(item => {
-    keyStr = item.slice(2, item.length - 2).trim()  // 模板中的字符串
-    let objKeys = keyStr.match(/\w+/g)     // 字符串对应的对象路径
-    return parseObj(obj, objKeys)           // 根据对象路径获得对象值
-  }
-  )
-  console.log(values)
 
   function parseObj(obj, keys) {
     let key, cur = obj
@@ -30,6 +22,13 @@ function parse(str) {
     }
     return cur
   }
+  values = strs.map(item => {
+    keyStr = item.slice(2, item.length - 2).trim()  // 模板中的字符串
+    let objKeys = keyStr.match(/\w+/g)     // 字符串对应的对象路径
+    return parseObj(obj, objKeys)           // 根据对象路径获得对象值
+  }
+  )
+  // 替换掉模板中的{{}}语法
   res = str.replace(reg, function () {
     return values.shift()
   })
