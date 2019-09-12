@@ -1,0 +1,17 @@
+{
+  "name": "Counterxing",
+  "short_name": "Counterxing",
+  "description": "Why did you encounter me?",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ACE",
+  "theme_color": "#ACE",
+  "icons": [
+    {
+      "src": "/images/logo/images.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    }
+  ]
+}
