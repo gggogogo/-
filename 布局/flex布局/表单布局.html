@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #content{
+            display: flex;
+            flex-direction: column;
+        }
+        .row{
+            display: flex;
+        }
+        .name{
+            text-align: center;
+            width: 100px;
+        }
+        .row>input{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="row">
+            <div class="name">用户名</div>
+            <div class="in">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="name">密码</div>
+            <div class="in">
+                    <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="name">验证码</div>
+            <div class="in">
+                    <input type="text">
+            </div>
+            <button>发送验证码</button>
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>

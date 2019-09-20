@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #content{
+            display: flex;
+            flex-direction: column;
+        }
+        .box1{
+            display: flex;
+            width: 100%;
+            height: 100px;
+        }
+        .size1{
+            background-color: red;
+            margin:0 10px;
+            flex: 12;
+        }
+        .size2{
+            background-color: rebeccapurple;
+            margin:0 10px;
+            flex: 6;
+        }
+        .size3{
+            background-color: blue;
+            margin:0 10px;
+            flex: 4;
+        }
+        .size4{
+            background-color: yellow;
+            margin:0 10px;
+            flex: 3;
+        }
+        .size12{
+            margin:0 10px;
+            background-color: pink;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="box1">
+            <div class="size1"></div>
+        </div>
+        <div class="box1">
+                <div class="size2"></div>
+                <div class="size2"></div>
+        </div>
+        <div class="box1">
+                <div class="size3"></div>
+                <div class="size3"></div>
+                <div class="size3"></div>
+        </div>
+        <div class="box1">
+                <div class="size4"></div>
+                <div class="size4"></div>
+                <div class="size4"></div>
+                <div class="size4"></div>
+        </div>
+        <div class="box1">
+                <div class="size12"></div>
+                <div class="size12"></div>
+                <div class="size3"></div>
+                <div class="size2"></div>
+        </div>
+    </div>
+</body>
+</html>
