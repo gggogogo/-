@@ -24,13 +24,34 @@
 // )
 
 
-// var param = []
-// param = read_line().split(' ').map(item => parseInt(item))
-// let c = fn(param[0], param[1], param[2], param[3])
+var param = []
+param = read_line().split(' ').map(item => parseInt(item))
+
+let c = fn(param[0], param[1], param[2], param[3])
 
 
-// print(c);
+print(c);
 
+var n, a, b;
+n = readInt()
+while ((a = read_line()) != null && (b = read_line()) != null) {
+  a = a.split(' ').map(item => parseInt(item))
+  b = b.split(' ').map(item => parseInt(item))
+  let c = f1(a, b);
+  print(c);
+}
+
+
+var cmd = require('node-stdio')
+
+var n, a, b;
+n = cmd.readInt()
+while ((a = cmd.read_line()) != null && (b = cmd.read_line()) != null) {
+  a = a.split(' ').map(item => parseInt(item))
+  b = b.split(' ').map(item => parseInt(item))
+  let c = f1(a, b);
+  cmd.print(c);
+}
 
 
 function f1(ary, delAry) {
@@ -41,7 +62,7 @@ function f1(ary, delAry) {
     ary2.splice(item - 1, 1, '')
     res.push(getMaxSub(ary2))
   })
-  return res.slice(0,res.length-1).join(' ')
+  return res.slice(0, res.length - 1).join(' ')
 }
 function getMaxSub(ary) {
   let max = 0,
