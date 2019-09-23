@@ -2,7 +2,7 @@
  * @Author: GuoWei
  * @Date: 2019-09-01 10:16:10
  * @LastEditors: GuoWei
- * @LastEditTime: 2019-09-01 13:25:03
+ * @LastEditTime: 2019-09-23 16:40:47
  * @Description: 翻转二叉树（原题树是以数组形式给出的）
  */
 
@@ -29,3 +29,15 @@ ary2 = [4, 2, null, 1, null]
 
 trval(ary)
 trval(ary2)
+
+var invertTree = function (root) {
+  if (root == null) {
+    return null;
+  }
+  let right = invertTree(root.right);
+  let left = invertTree(root.left);
+  root.left = right;
+  root.right = left;
+  return root;
+};
+
