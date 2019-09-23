@@ -3,10 +3,10 @@ function defineReactive(data, key, val) {
   let dep = new Dep()
   Object.defineProperty(data, key, {
     enumerable: true,
-    writable: true,
+    configurable: true,
     get() {
-      if () {
-        dep.addSub(watcher)
+      if (Dep.target) {
+        dep.addSub(Dep.target)
       }
       return val
     },
@@ -24,7 +24,7 @@ function observe(data) {
   if (!data || typeof data !== 'object') {
     return
   }
-  Object.keys(data).forEach(item => {
+  Object.keys(data).forEach(key => {
     defineReactive(data, key, data[key])
   })
 }
@@ -66,14 +66,15 @@ class Watcher {
     let oldVal = this.value
     if (val !== oldVal) {
       this.value = val
-      this.cb().call(this.vm, this.value, oldVal)
+      this.cb.call(this.vm, this.value, oldVal)
     }
   }
-  
+
   get() {
     Dep.target = this // 缓存自身
-    let value = this.vm.data[this.exp]
-    Dep.target = null
+    let value = this.vm.data[this.exp]  //强制执行监听器里的get函数
+    Dep.target = null  //释放自己
     return value
   }
 }
+
