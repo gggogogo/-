@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>操作数组</title>
+  <style>
+    body {
+      display: flex
+    }
+
+    button {
+      position: absolute;
+      left: 50%;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="defpro">
+    <h1>使用defineProperty修改数组</h1>
+    <ul id="def-ul">
+
+    </ul>
+  </div>
+  <div id="proxy">
+    <h1>使用proxy修改数组</h1>
+    <ul id="proxy-ul"></ul>
+  </div>
+  <button>push数组</button>
+  <script>
+    const arr = [1, 2, 3, 4, 5]
+    const defUl = document.querySelector('#def-ul')
+    const proxyUl = document.querySelector('#proxy-ul')
+    const button = document.querySelector('button')
+    let i = 6
+    button.addEventListener('click', function () {
+      arr.push(i++)
+      proxy.push(i++)
+
+    })
+    function init() {
+      let str = ''
+      for (let i = 0; i < arr.length; i++) {
+        str += `<li>${arr[i]}</li>`
+      }
+      defUl.innerHTML = str;
+      proxyUl.innerHTML = str;
+    }
+    function addArr(val) {
+      const li = document.createElement('li');
+      li.textContent = val;
+      defUl.appendChild(li);
+      proxyUl.appendChild(li);
+    }
+
+    window.onload = function () {
+      init()
+    }
+    // defineProperty渲染列表数据
+
+    Object.defineProperty(arr, length, {
+      get: function () {
+        console.log(`原始get`)
+      },
+      set: function (val) {
+        addArr(val)
+      }
+    })
+
+    //proxy监听数组变化
+    let proxy = new Proxy(arr, {
+      get: function (target, key, receiver) {
+        console.log(key);
+        return Reflect.get(target, key, receiver);
+      },
+      set: function (target, key, value, receiver) {
+        console.log(target, key, value, receiver);
+        if (key !== 'length') {
+          addArr(value);
+        }
+        return Reflect.set(target, key, value, receiver);
+      }
+    })
+  </script>
+</body>
+
+</html>

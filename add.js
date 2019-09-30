@@ -38,3 +38,13 @@ let add3 = ((count = 0) => () => { console.log(++count) })()
 
 add3()
 add3()
+
+function foo() {
+  console.log(a)
+}
+var a = 0
+function bar() {
+  var a = 3
+  foo()
+}
+bar()

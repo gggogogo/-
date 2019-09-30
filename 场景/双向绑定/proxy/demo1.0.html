@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>proxy双向绑定1.0</title>
+</head>
+
+<body>
+  <input type="text" id="in">
+  <div class="content"></div>
+  <script>
+    let input = document.querySelector('input')
+    let content = document.querySelector('.content')
+    const obj = {}
+    let proxy = new Proxy(obj, {
+      get: function (target, name, receiver) {
+        console.log(`getter${name}`)
+        return Reflect.get(target, name, receiver)
+      },
+      set: function (target, name, value, receiver) {
+        content.innerHTML = value
+        return Reflect.set(target, name, value, receiver)
+      }
+    })
+
+    input.addEventListener('keyup', function (e) {
+      // 修改代理对象
+      proxy.text = e.target.value
+    })
+  </script>
+</body>
+
+</html>

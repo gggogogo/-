@@ -6,32 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <style>
-    #outer {
-      position: relative;
-      background-color: aquamarine;
-      min-height: min-content;
-    }
-
-    #inner {
-      position: absolute;
-      right: 50px;
-    }
-
-    .inner {
-      width: 200px;
-      height: 50px;
-      background-color: black;
-      opacity: 0.3;
-    }
-  </style>
 </head>
 
 <body>
-  <div id="outer">
-    <div id="inner" class="inner"></div>
-    <!-- <div class="inner"></div> -->
-  </div>
+  <section id="content">
+
+    <div>
+      <div>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul>
+      <li>2-1</li>
+      <li>2-2</li>
+      <li>2-3</li>
+      <li>2-4</li>
+    </ul>
+  </section>
 </body>
+<script>
+  function Fn() { }
+  Fn.prototype.add = function () {
+    this.count++
+    console.log(this.count)
+  }
+  Fn.prototype.count = 0
+  let fn1 = new Fn()
+  let fn2 = new Fn()
+  fn1.add()
+  fn2.add()
+
+
+</script>
 
 </html>
