@@ -1,14 +1,10 @@
 /*
  * @Author: GuoWei
- * @LastEditors: GuoWei
+ * @LastEditors: heartGuo
  * @Description: 
  * @Date: 2019-03-20 11:36:43
- * @LastEditTime: 2019-03-21 13:37:19
+ * @LastEditTime: 2019-10-07 23:24:22
  */
-
-
-
-
 function boxMoving(event) {
     var e = event || window.event;
     var ele = e.target;
