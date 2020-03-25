@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script src="./demo.js"></script>
+    <style>
+        #field {
+            height: 200px;
+            border-bottom: 3px black groove;
+            position: relative;
+        }
+
+        #ball {
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="field">
+        <img src="https://en.js.cx/clipart/ball.svg" width="40" height="40" id="ball">
+    </div>
+    <script>
+        let bounceEasyOut = makeEaseOut(timing.bounce)
+
+        let ball = document.querySelector("#ball");
+        let field = document.querySelector("#field");
+        const height = field.clientHeight;
+
+        ball.onclick = function () {
+            animate({
+                duration: 3000,
+                timing:bounceEasyOut,
+                draw(timeFraction) {
+                    ball.style.top = `${timeFraction * 160}px`
+                }
+            })
+            animate({
+                duration: 3000,
+                timing:timing.linear,
+                draw(timeFraction) {
+                    ball.style.left = `${timeFraction * 100}px`
+                }
+            })
+        }
+    </script>
+
+</body>
+
+</html>
