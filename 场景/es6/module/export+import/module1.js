@@ -7,9 +7,14 @@
  */ 
 
 
-export function fn1() {
-  console.log('fn1')
-}
-export default function fn2() {
-  console.log('fn2')
+// export function fn1() {
+//   console.log('fn1')
+// }
+export default  obj = {
+  fn2:function(){
+    console.log('fn2')
+  },
+  fn3:function(){
+    console.log('fn3')
+  }
 }
